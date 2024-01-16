@@ -21,11 +21,8 @@ namespace PresentationLayer.Controllers
         {
             try
             {
-                var token = _authService.OrganizerLogin(loginDTO);
-                return Ok(new {
-                    Message = "Login Successfull..",
-                    Token = token
-                });
+                var loginOutput = _authService.OrganizerLogin(loginDTO);
+                return Ok(loginOutput);
             }
             catch (Exception ex)
             {

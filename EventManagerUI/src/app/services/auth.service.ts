@@ -6,9 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  organizerId = 0;
   private apiUrl = 'https://localhost:7204/api/auth';
 
   constructor(private http: HttpClient) { }
+
+  setOrganizerId(id: number): void {
+    this.organizerId = id;
+  }
+  getOrganizerId(): number{
+    return this.organizerId;
+  }
 
   organizerLogin(email: string, password: string): Observable<any> {
     let role = "Organizer";
@@ -20,5 +28,9 @@ export class AuthService {
     let role = "Attendee";
     const body = { email, password, role };
     return this.http.post(`${this.apiUrl}/attendee/login`, body);
+  }
+
+  isLoggedIn(): boolean{
+    return !!localStorage.getItem('token')
   }
 }

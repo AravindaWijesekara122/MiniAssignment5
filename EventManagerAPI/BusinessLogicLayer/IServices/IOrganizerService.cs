@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer.DTOs;
+using DataAccessLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace BusinessLogicLayer.IServices
     public interface IOrganizerService
     {
         void CreateEvent(EventDTO newEventDTO);
-        IEnumerable<EventDetailsDTO> GetEvents();
+        IEnumerable<Event> GetEvents();
         EventDetailsDTO GetEventById(int eventId);
         void UpdateEvent(int eventId, EventDTO updatedEventDTO);
         void CancelEvent(int eventId);

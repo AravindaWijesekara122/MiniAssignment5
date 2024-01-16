@@ -43,20 +43,11 @@ namespace BusinessLogicLayer.Services
             }  
         }
 
-        public IEnumerable<EventDetailsDTO> GetEvents()
+        public IEnumerable<Event> GetEvents()
         {
             try
             {
-                var events = _dbContext.Events
-                .Select(e => new EventDetailsDTO
-                {
-                    EventName = e.EventName,
-                    Date = e.Date,
-                    Time = e.Time,
-                    Location = e.Location,
-                    Description = e.Description,
-                })
-                .ToList();
+                var events = _dbContext.Events.ToList();
 
                 return events;
             }

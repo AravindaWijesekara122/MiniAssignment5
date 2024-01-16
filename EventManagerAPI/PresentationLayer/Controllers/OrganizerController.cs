@@ -77,7 +77,7 @@ namespace PresentationLayer.Controllers
             try
             {
                 _organizerService.CancelEvent(eventId);
-                return Ok($"Event with ID {eventId} canceled successfully.");
+                return Ok(new {Message = $"Event with ID {eventId} canceled successfully."});
             }
             catch (Exception ex)
             {

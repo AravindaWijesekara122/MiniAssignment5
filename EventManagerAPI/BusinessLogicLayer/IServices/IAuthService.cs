@@ -9,7 +9,7 @@ namespace BusinessLogicLayer.IServices
 {
     public interface IAuthService
     {
-        string OrganizerLogin(LoginDTO loginDTO);
+        LoginOutputDTO OrganizerLogin(LoginDTO loginDTO);
         string AttendeeLogin(LoginDTO loginDTO);
     }
 }

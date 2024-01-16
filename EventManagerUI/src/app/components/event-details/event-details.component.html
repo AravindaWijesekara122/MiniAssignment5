@@ -1,0 +1,20 @@
+<!-- event-details.component.html -->
+
+<div *ngIf="event">
+    <h2>Event Details</h2>
+    <p>Event Name: {{ event.eventName }}</p>
+    <p>Date: {{ event.date | date }}</p>
+    <p>Time: {{ event.time }}</p>
+    <p>Location: {{ event.location }}</p>
+    <p>Description: {{ event.description }}</p>
+
+    <div>
+        <!-- Event details display here -->
+        <button (click)="updateEvent()">Update Event</button>
+    </div>
+    <div>
+        <!-- Event details display here -->
+        <button (click)="deleteEvent()">Delete Event</button>
+      </div>
+
+</div>

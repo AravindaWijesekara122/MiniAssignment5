@@ -1,0 +1,13 @@
+<p>organizer-dashboard works!</p>
+<!-- organizer-dashboard.component.html -->
+
+<div>
+    <h2>Organizer Dashboard</h2>
+    <button (click)="navigateToCreateEvent()">Create Event</button>
+    <ul>
+      <li *ngFor="let event of events">
+        {{ event.eventName }} <button (click)="viewEventDetails(event.eventID)"> View Event </button>
+      </li>
+    </ul>
+  </div>
+  

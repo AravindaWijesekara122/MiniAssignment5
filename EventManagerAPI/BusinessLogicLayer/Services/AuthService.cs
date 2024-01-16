@@ -20,7 +20,7 @@ namespace BusinessLogicLayer.Services
             _dbContext = dbContext;
         }
 
-        public string OrganizerLogin(LoginDTO loginDTO)
+        public LoginOutputDTO OrganizerLogin(LoginDTO loginDTO)
         {
             try
             {
@@ -33,7 +33,14 @@ namespace BusinessLogicLayer.Services
                 }
 
                 var newAccessToken = CreateJwt(loginDTO);
-                return newAccessToken;
+                var loginOutput = new LoginOutputDTO()
+                {
+                    OrganizerID = organizer.OrganizerID,
+                    Message = "Login Successfull..!",
+                    Token = newAccessToken
+                };
+                //return newAccessToken;
+                return (loginOutput);
             }
             catch (Exception ex)
             {
