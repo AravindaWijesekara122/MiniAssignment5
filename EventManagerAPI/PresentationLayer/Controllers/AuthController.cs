@@ -37,12 +37,8 @@ namespace PresentationLayer.Controllers
         {
             try
             {
-                var token = _authService.AttendeeLogin(loginDTO);
-                return Ok(new
-                {
-                    Message = "Login Successfull..",
-                    Token = token
-                });
+                var loginOutput = _authService.AttendeeLogin(loginDTO);
+                return Ok(loginOutput);
             }
             catch (Exception ex)
             {

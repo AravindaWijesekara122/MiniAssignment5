@@ -1,0 +1,11 @@
+<!-- all-events.component.html -->
+
+<div>
+    <h2>All Events</h2>
+  
+    <!-- Display a list of all events here -->
+    <ul>
+      <li *ngFor="let event of events">{{ event.eventName }} - {{ event.date | date }} - {{ event.location }}</li>
+    </ul>
+  </div>
+  

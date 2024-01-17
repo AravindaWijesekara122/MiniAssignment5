@@ -1,0 +1,15 @@
+<!-- attendee-dashboard.component.html -->
+
+<div>
+    <h2>Attendee Dashboard</h2>
+  
+    <!-- Add buttons for navigation -->
+    <button (click)="navigateToAllEvents()">All Events</button>
+    <button (click)="navigateToUpcomingEvents()">Upcoming Events</button>
+    <button (click)="navigateToRegisteredEvents()">Registered Events</button>
+    
+  
+    <!-- Display content based on the selected option -->
+    <router-outlet></router-outlet>
+  </div>
+  

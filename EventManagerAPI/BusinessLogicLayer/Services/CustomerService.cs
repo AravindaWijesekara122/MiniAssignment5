@@ -18,20 +18,20 @@ namespace BusinessLogicLayer.Services
         {
             _dbContext = dbContext;
         }
-        public IEnumerable<EventDetailsDTO> GetUpcomingEvents()
+        public IEnumerable<Event> GetUpcomingEvents()
         {
             try
             {
                 var upcomingEvents = _dbContext.Events
                 .Where(e => e.Date >= DateTime.Now)
-                .Select(e => new EventDetailsDTO
-                {
-                    EventName = e.EventName,
-                    Date = e.Date,
-                    Time = e.Time,
-                    Location = e.Location,
-                    Description = e.Description,
-                })
+                //.Select(e => new EventDetailsDTO
+                //{
+                //    EventName = e.EventName,
+                //    Date = e.Date,
+                //    Time = e.Time,
+                //    Location = e.Location,
+                //    Description = e.Description,
+                //})
                 .ToList();
 
                 return upcomingEvents;
@@ -91,7 +91,7 @@ namespace BusinessLogicLayer.Services
         }
 
 
-        public IEnumerable<EventDetailsDTO> GetRegisteredEvents(int attendeeId)
+        public IEnumerable<Event> GetRegisteredEvents(int attendeeId)
         {
             try
             {
@@ -99,14 +99,14 @@ namespace BusinessLogicLayer.Services
                 var registeredEvents = _dbContext.GuestListAttendees
                 .Where(gla => gla.AttendeeID == attendeeId)
                 .Select(gla => gla.GuestList.Event)
-                .Select(a => new EventDetailsDTO()
-                {
-                    EventName = a.EventName,
-                    Date = a.Date,
-                    Time = a.Time,
-                    Location = a.Location,
-                    Description = a.Description
-                })
+                //.Select(a => new EventDetailsDTO()
+                //{
+                //    EventName = a.EventName,
+                //    Date = a.Date,
+                //    Time = a.Time,
+                //    Location = a.Location,
+                //    Description = a.Description
+                //})
                 .ToList();
 
                 return registeredEvents;

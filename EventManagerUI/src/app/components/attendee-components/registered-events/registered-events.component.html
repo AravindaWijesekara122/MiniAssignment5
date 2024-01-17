@@ -1,0 +1,14 @@
+<!-- registered-events.component.html -->
+
+<div>
+    <h2>Registered Events</h2>
+  
+    <!-- Display a list of registered events here -->
+    <ul>
+        <li *ngFor="let event of registeredEvents">{{ event.eventName }} - {{ event.date | date }} - {{ event.location }}
+            <button (click)="unregister(event.eventID)">Cancel Registration</button>
+        </li>
+      
+    </ul>
+  </div>
+  

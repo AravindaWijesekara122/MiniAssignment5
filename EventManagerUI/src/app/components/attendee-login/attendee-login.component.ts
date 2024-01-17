@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,16 +11,19 @@ export class AttendeeLoginComponent {
   email = '';
   password = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ) { }
 
   onSubmit(): void {
     this.authService.attendeeLogin(this.email, this.password).subscribe(
       (response) => {
-        // Handle successful login
         console.log('Login successful', response);
+        this.authService.setAttendeeId(response.id);
+        this.router.navigate(['attendee-dashboard']);
       },
       (error) => {
-        // Handle login error
         console.error('Login error', error);
       }
     );

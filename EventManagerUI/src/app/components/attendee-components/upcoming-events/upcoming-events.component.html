@@ -1,0 +1,15 @@
+<!-- upcoming-events.component.html -->
+
+<div>
+    <h2>Upcoming Events</h2>
+  
+    <div *ngIf="upcomingEvents.length == 0">
+        No Upcoming Events
+    </div>
+    <ul>
+        <li *ngFor="let event of upcomingEvents">{{ event.eventName }} - {{ event.date | date }} - {{ event.location }}
+            <button (click)="register(event.eventID)">Registere For Event</button>
+        </li>
+    </ul>
+  </div>
+  

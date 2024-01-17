@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.DTOs;
 using BusinessLogicLayer.IServices;
 using DataAccessLayer;
+using DataAccessLayer.Entities;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace BusinessLogicLayer.Services
                 var newAccessToken = CreateJwt(loginDTO);
                 var loginOutput = new LoginOutputDTO()
                 {
-                    OrganizerID = organizer.OrganizerID,
+                    ID = organizer.OrganizerID,
                     Message = "Login Successfull..!",
                     Token = newAccessToken
                 };
@@ -48,7 +49,7 @@ namespace BusinessLogicLayer.Services
             }
         }
 
-        public string AttendeeLogin(LoginDTO loginDTO)
+        public LoginOutputDTO AttendeeLogin(LoginDTO loginDTO)
         {
             try
             {
@@ -57,11 +58,18 @@ namespace BusinessLogicLayer.Services
 
                 if (attendee == null)
                 {
-                    throw new Exception("Attendee Not Found");
+                    throw new Exception("Organizer Not Found");
                 }
 
                 var newAccessToken = CreateJwt(loginDTO);
-                return newAccessToken;
+                var loginOutput = new LoginOutputDTO()
+                {
+                    ID = attendee.AttendeeID,
+                    Message = "Login Successfull..!",
+                    Token = newAccessToken
+                };
+
+                return (loginOutput);
             }           
             catch (Exception ex)
             {

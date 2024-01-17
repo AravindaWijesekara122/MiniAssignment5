@@ -1,1 +1,28 @@
 <p>update-event works!</p>
+
+<!-- update-event.component.html -->
+
+<div>
+    <h2>Update Event</h2>
+  
+    <!-- Your update event form here -->
+    <form (submit)="updateEvent()">
+      <label for="eventName">Event Name:</label>
+      <input type="text" id="eventName" [(ngModel)]="eventData.eventName" name="eventName" required>
+  
+      <label for="date">Date:</label>
+      <input type="text" id="date" [(ngModel)]="eventData.date" name="date" required>
+  
+      <label for="time">Time:</label>
+      <input type="text" id="time" [(ngModel)]="eventData.time" name="time" required>
+  
+      <label for="location">Location:</label>
+      <input type="text" id="location" [(ngModel)]="eventData.location" name="location" required>
+  
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="eventData.description" name="description" required></textarea>
+  
+      <button type="submit">Update Event</button>
+    </form>
+  </div>
+  

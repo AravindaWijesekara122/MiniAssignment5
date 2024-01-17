@@ -62,7 +62,7 @@ namespace PresentationLayer.Controllers
             try
             {
                 _customerService.CancelRegistration(eventId, attendeeId);
-                return Ok("Registration canceled successfully");
+                return Ok(new { Message = "Registration canceled successfully" });
             }
             catch (Exception ex)
             {

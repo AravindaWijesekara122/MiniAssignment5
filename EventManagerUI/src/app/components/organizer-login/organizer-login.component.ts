@@ -16,15 +16,11 @@ export class OrganizerLoginComponent {
   onSubmit(): void {
     this.authService.organizerLogin(this.email, this.password).subscribe({
       next: (response) => {
-        //this.organizerId = response.organizerID;
-        this.authService.setOrganizerId(response.organizerID)
-
-        // Handle successful login
+        this.authService.setOrganizerId(response.id)
         console.log('Login successful', response.organizerID);
         this.router.navigate(['organizer-dashboard'])
       },
       error: (error) => {
-        // Handle login error
         console.error('Login error', error);
       }
 

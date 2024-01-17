@@ -10,6 +10,6 @@ namespace BusinessLogicLayer.IServices
     public interface IAuthService
     {
         LoginOutputDTO OrganizerLogin(LoginDTO loginDTO);
-        string AttendeeLogin(LoginDTO loginDTO);
+        LoginOutputDTO AttendeeLogin(LoginDTO loginDTO);
     }
 }

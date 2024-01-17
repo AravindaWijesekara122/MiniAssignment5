@@ -22,11 +22,15 @@ export class OrganizerService {
     return this.http.get<Event>(`${this.apiUrl}/event/${eventId}`);
   }
 
-  editEvent(eventId: number, updatedEvent: any): Observable<any> {
+  updateEvent(eventId: number, updatedEvent: any): Observable<any> {
     return this.http.put<Event>(`${this.apiUrl}/update-event/${eventId}`, updatedEvent);
   }
 
   cancelEvent(eventId: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete-event/${eventId}`);
+  }
+
+  generateGuestList(eventId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/guestlist/${eventId}`);
   }
 }

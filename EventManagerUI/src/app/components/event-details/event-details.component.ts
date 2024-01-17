@@ -49,4 +49,9 @@ export class EventDetailsComponent implements OnInit {
     });
   }
 
+  generateGuestList(): void {
+    console.log(this.eventId);
+    this.router.navigate([`guest-list/${this.eventId}`]);
+  }
+
 }

@@ -8,7 +8,7 @@ namespace BusinessLogicLayer.DTOs
 {
     public class LoginOutputDTO
     {
-        public int OrganizerID { get; set; }
+        public int ID { get; set; }
         public string Message { get; set; }
         public string Token { get; set; }
     }

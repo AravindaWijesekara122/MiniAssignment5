@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   organizerId = 0;
+  attendeeId = 0;
   private apiUrl = 'https://localhost:7204/api/auth';
 
   constructor(private http: HttpClient) { }
@@ -16,6 +17,13 @@ export class AuthService {
   }
   getOrganizerId(): number{
     return this.organizerId;
+  }
+
+  setAttendeeId(id: number): void {
+    this.attendeeId = id;
+  }
+  getAttendeeId(): number{
+    return this.attendeeId;
   }
 
   organizerLogin(email: string, password: string): Observable<any> {

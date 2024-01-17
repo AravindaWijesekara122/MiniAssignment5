@@ -1,1 +1,10 @@
-<p>generate-guest-list works!</p>
+<div>
+    <h3>Guest List Details</h3>
+    <div *ngIf="attendees.length == 0">
+        No Attendees Registered
+    </div>
+    <ul>
+        <li *ngFor="let attendee of attendees">{{ attendee.name }} - {{ attendee.email }} - {{ attendee.phoneNumber }}
+        </li>
+    </ul>
+</div>
