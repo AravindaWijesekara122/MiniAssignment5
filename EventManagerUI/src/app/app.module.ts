@@ -17,6 +17,7 @@ import { AttendeeDashboardComponent } from './components/attendee-components/att
 import { AllEventsComponent } from './components/attendee-components/all-events/all-events.component';
 import { UpcomingEventsComponent } from './components/attendee-components/upcoming-events/upcoming-events.component';
 import { RegisteredEventsComponent } from './components/attendee-components/registered-events/registered-events.component';
+import { RegisterConfirmationComponent } from './components/attendee-components/register-confirmation/register-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RegisteredEventsComponent } from './components/attendee-components/regi
     AttendeeDashboardComponent,
     AllEventsComponent,
     UpcomingEventsComponent,
-    RegisteredEventsComponent
+    RegisteredEventsComponent,
+    RegisterConfirmationComponent
   ],
   imports: [
     BrowserModule,

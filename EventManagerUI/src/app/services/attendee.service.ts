@@ -6,9 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AttendeeService {
+  private registrationResponse: any;
   private apiUrl = 'https://localhost:7204/api/customer';
 
   constructor(private http: HttpClient) {}
+
+  setRegistrationResponse(response: any): void {
+    this.registrationResponse = response;
+  }
+
+  getRegistrationResponse(): any {
+    return this.registrationResponse;
+  }
 
   upcomingEvents(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/upcoming`);

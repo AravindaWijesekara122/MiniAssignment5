@@ -41,7 +41,8 @@ export class UpcomingEventsComponent implements OnInit {
     this.attendeeService.registerForEvent(eventID, this.attendeeId).subscribe({
       next: (response) => {
         console.log(response);
-        this.router.navigate(['attendee-dashboard/registered-events']);
+        this.attendeeService.setRegistrationResponse(response);
+        this.router.navigate(['register-confirmation']);
       },
       error: (error) => {
         console.error('Error registering for event', error);

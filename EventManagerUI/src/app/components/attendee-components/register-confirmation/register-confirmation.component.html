@@ -1,0 +1,15 @@
+<div>
+    <h2>{{registrationResponse.message}}</h2>
+    <div><button (click)="back()"> Back </button></div>
+
+    <ul>
+        <li>Attendee Name: {{ registrationResponse.attendeeName }}</li>
+        <li>Attendee PhoneNumber: {{ registrationResponse.phoneNumber }}</li>
+        <li>Attendee Email: {{ registrationResponse.email }}</li>
+        <li>Event Name: {{ registrationResponse.eventName }}</li>
+        <li>Event Date: {{ registrationResponse.date }}</li>
+        <li>Event Time: {{ registrationResponse.time }}</li>
+        <li>Location: {{ registrationResponse.location }}</li>
+        <li>Description: {{ registrationResponse.description }}</li>
+    </ul>
+</div>

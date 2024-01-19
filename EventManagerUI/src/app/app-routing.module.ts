@@ -13,17 +13,19 @@ import { AttendeeDashboardComponent } from './components/attendee-components/att
 import { AllEventsComponent } from './components/attendee-components/all-events/all-events.component';
 import { UpcomingEventsComponent } from './components/attendee-components/upcoming-events/upcoming-events.component';
 import { RegisteredEventsComponent } from './components/attendee-components/registered-events/registered-events.component';
+import { RegisterConfirmationComponent } from './components/attendee-components/register-confirmation/register-confirmation.component';
 //import { AuthGuard } from '/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'organizer-login', component: OrganizerLoginComponent },
+  { path: 'organizer-login', component: OrganizerLoginComponent, canActivate: [authGuard]},
   { path: 'attendee-login', component: AttendeeLoginComponent },
   { path: 'organizer-dashboard', component: OrganizerDashboardComponent }, //, canActivate: [authGuard]
   { path: 'create-event', component: CreateEventComponent },
   { path: 'event-details/:id', component: EventDetailsComponent },
   { path: 'update-event/:id', component: UpdateEventComponent},
   { path: 'guest-list/:id', component: GenerateGuestListComponent },
+  { path: 'register-confirmation', component: RegisterConfirmationComponent},
 
   {
     path: 'attendee-dashboard',

@@ -7,15 +7,19 @@ import { NgToastService } from 'ng-angular-popup';
   providedIn: 'root'
 })
 export class PermissionsService {
-  constructor(private auth : AuthService, private router: Router, private toast: NgToastService){
 
-  }
-  canActivate():boolean{
-    if(this.auth.isLoggedIn()){
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private toast: NgToastService
+  ) { }
+
+  canActivate(): boolean {
+    if (this.auth.isAuthenticated()) {
       return true
-    }else{
-      this.toast.error({detail:"ERROR", summary:"Please Login First!"});
-      this.router.navigate(['organizer-login'])
+    } else {
+      this.toast.error({ detail: "ERROR", summary: "Please Login First!" });
+      this.router.navigate(['']);
       return false;
     }
   }
